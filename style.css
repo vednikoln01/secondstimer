@@ -1,0 +1,40 @@
+/* CSS = HOW THINGS LOOK. This entire file controls colors, spacing, sizes and layout. */
+:root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0c0e1d; color: #f6f4ff; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; min-height: 100dvh; background: radial-gradient(ellipse at 50% 10%, #262049 0, #131326 47%, #0c0e1d 100%); }
+main { width: min(100%, 460px); min-height: 100vh; min-height: 100dvh; margin: auto; padding: max(36px, env(safe-area-inset-top)) 22px max(30px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { letter-spacing: -.6px; font-weight: 800; font-size: 22px; }
+.brand span { color: #b3a4ff; }
+.chip { font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #c0b3ff; padding: 9px 10px; background: #7560b922; border: 1px solid #a78fff4a; border-radius: 999px; }
+.tagline { margin: 13px 0 0; font-size: 14px; color: #aaa7c4; }
+.hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 0 18px; }
+.dial { --progress: 0%; width: min(78vw, 326px); aspect-ratio: 1; border-radius: 50%; padding: 11px; background: conic-gradient(#aa8eff var(--progress), #38334d var(--progress)); box-shadow: 0 0 65px #6f55b01e, inset 0 0 0 1px #d5bfff18; transition: background 0.15s linear; }
+.dial-inside { width: 100%; height: 100%; border: 1px solid #55467577; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 40%, #28223e 0%, #171527 78%); }
+.number { font-size: clamp(53px, 17vw, 96px); line-height: 1; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -4px; max-width: 100%; overflow: hidden; padding-right: 5px; }
+.number.long-number { font-size: clamp(36px, 11vw, 56px); letter-spacing: -2px; }
+.seconds-label { color: #aba4c5; text-transform: uppercase; letter-spacing: 4px; font-size: 12px; font-weight: 800; margin-top: 14px; }
+.status { font-size: 14px; color: #c9c1e0; margin: 28px 0 0; min-height: 20px; }
+.controls { padding-bottom: 14px; }
+.input-title { display: block; font-size: 13px; color: #c9c2e1; font-weight: 700; margin: 0 0 8px; }
+.time-fields { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.time-field { display: flex; flex-direction: column; gap: 8px; }
+.field-label { color: #b8afd2; font-size: 12px; font-weight: 750; text-align: center; }
+input { min-width: 0; width: 100%; border: 1px solid #655780; background: #201d35; outline: none; border-radius: 14px; color: white; padding: 13px 16px; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+input:focus-visible, button:focus-visible { outline: 2px solid #d5c9ff; outline-offset: 3px; }
+input:disabled { opacity: .60; }
+.time-field input { text-align: center; padding: 13px 5px; }
+.presets { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 7px; margin: 14px 0 20px; }
+button { -webkit-tap-highlight-color: transparent; cursor: pointer; font-family: inherit; font-weight: 750; }
+.preset { border: 1px solid #48405c; border-radius: 11px; background: #211d34; color: #cfc9e0; padding: 10px 2px; font-size: 13px; }
+.preset:disabled { opacity: .35; cursor: not-allowed; }
+.action-row { display: grid; grid-template-columns: 1.7fr 1fr; gap: 10px; }
+.action { border-radius: 14px; min-height: 58px; border: 1px solid transparent; font-size: 16px; }
+.primary { background: #a38af8; color: #171024; box-shadow: 0 9px 30px #835de530; }
+.secondary { background: #29263c; color: #f0edf9; border-color: #524767; }
+.primary:active, .secondary:active, .preset:active { transform: scale(.98); }
+.hint { font-size: 12px; color: #a9a3c2; line-height: 1.45; margin: 8px 0 0; }
+.note { color: #79738e; text-align: center; font-size: 11px; margin: 21px 0 0; line-height: 1.5; }
+@media (max-width: 350px) { main { padding-left: 13px; padding-right: 13px; } .time-fields { gap: 6px; } .preset { font-size: 11px; } }
+@media (max-height: 690px) { .hero { padding: 22px 0 10px; } .dial { width: min(65vw, 254px); } .status { margin-top: 16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
